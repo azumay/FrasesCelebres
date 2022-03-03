@@ -1,106 +1,67 @@
 <?php
-class Configuracio {
-    private $_directoriDePujades;			//carpeta on emmagatzemearem les imatges pujades pels usuaris
-    private $_formatsImatgesPermesos;	  	//formats permesos
-    private $_mimesImatgesPermesos;
-    
+class Configuracio
+{
+
     //Dades de configuració per accés a base de dades
     private $_dbServidor;
-    private $_dbUsernamePerConsultes;
-    private $_dbUsernamePerAccions;
+    private $_dbUser;
     private $_dbPassword;
     private $_dbBaseDeDades;
-    
+    private $_dbType;
+
     private static $_instance;
-    
-    
-    private function __construct(){
+
+    private function __construct()
+    {
         include "config.php";
-        
-        $this->_directoriDePujades = $directoriDePujades;
-        $this->_formatsImatgesPermesos = $formatsImatgesPermesos;
-        $this->_mimesImatgesPermesos = $mimesImatgesPermesos;
 
         /*Dades conexio base de dades*/
-        $this->_dbServidor = $dbServidor;
-        $this->_dbUsernamePerConsultes = $dbUsernamePerConsultes;
-        $this->_dbUsernamePerAccions = $dbUsernamePerAccions;
-        $this->_dbPassword = $dbPassword;
-        $this->_dbBaseDeDades = $dbBaseDeDades;        
+        $this->_dbServidor = $host;
+        $this->_dbUser = $user;
+        $this->_dbPassword = $password;
+        $this->_dbBaseDeDades = $dbBaseDeDades;
+        $this->_dbType = $dbtype;
     }
-    
-    public static function getInstance() {
-        if (!(self::$_instance instanceof self)){
-            self::$_instance=new self();
+
+    public static function getInstance()
+    {
+        if (!(self::$_instance instanceof self)) {
+            self::$_instance = new self();
         }
         return self::$_instance;
     }
-    
-    public function clone() {   
-    }
-    /**
-     * @return mixed
-     */
-    public function getDirectoriDePujades()
-    {
-        return $this->_directoriDePujades;
+
+    function clone () {
     }
 
-    /**
-     * @return mixed
-     */
-    public function getFormatsImatgesPermesos()
-    {
-        return $this->_formatsImatgesPermesos;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMimesImatgesPermesos()
-    {
-        return $this->_mimesImatgesPermesos;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getDbServidor()
     {
         return $this->_dbServidor;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDbUsernamePerConsultes()
+    public function getUserDB()
     {
-        return $this->_dbUsernamePerConsultes;
+        return $this->_dbUser;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDbUsernamePerAccions()
+    public function getPassDB()
     {
-        return $this->_dbUsernamePerAccions;
+        return $this->_dbPassword;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDbPassword()
     {
         return $this->_dbPassword;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDbBaseDeDades()
     {
         return $this->_dbBaseDeDades;
     }
+    public function getDbType()
+    {
+        return $this->_dbType;
+    }
 
- }
 
+}

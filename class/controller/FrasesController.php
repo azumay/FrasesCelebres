@@ -9,8 +9,11 @@ class FrasesController extends Controller {
         //include_once "php/functions.php";
         //include_once "config.php";
       
-        $frases = new AutorModel();
-        $frases ->loadingData(); 
+        //$frases = new BaseDatos();
+        //$frases ->createDB(); 
+
+        $showXML = new AutorModel();
+        $showXML ->loadingData();
         
         $pageFrases = new FrasesView();
         $pageFrases -> show();

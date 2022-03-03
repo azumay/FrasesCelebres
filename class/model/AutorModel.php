@@ -19,9 +19,9 @@ class AutorModel{
 	public function loadingData(){
      
 		$this -> contenido = simplexml_load_file($this->fichero);
-        echo "<pre>";
-        var_dump($this->contenido);
-        echo "</pre>";
+        //echo "<pre>";
+        //var_dump($this->contenido);
+        //echo "</pre>";
 		return $this -> contenido;
 
 	}

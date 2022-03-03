@@ -4,8 +4,10 @@ $formatsImatgesPermesos = array('jpg','jpeg','gif','png','tif','tiff','bmp');		 
 $mimesImatgesPermesos = array ("image/jpg", "image/jpeg", "image/png", "image/gif", "image/tif", "image/tiff", "image/bmp");
 
 //Dades de configuració per accés a base de dades
-$dbServidor ="localhost";
-$dbUsernamePerConsultes = "usr_consulta";
-$dbUsernamePerAccions = "usr_generic";
-$dbPassword = "Thico@2020";
-$dbBaseDeDades = "myweb";
+$host='localhost';	
+$user='yamuza';			
+$password='yamuza';	     
+$dbBaseDeDades = "FrasesAutor";
+$dbtype = 'mysql';
+
+     
