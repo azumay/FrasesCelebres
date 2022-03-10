@@ -8,12 +8,15 @@ class FrasesController extends Controller {
     public function show() {
         //include_once "php/functions.php";
         //include_once "config.php";
-      
-        //$frases = new BaseDatos();
-        //$frases ->createDB(); 
 
         $showXML = new AutorModel();
-        $showXML ->loadingData();
+        
+      
+        $frases = new BaseDatos();
+        $frases ->createDB(); 
+        $frases ->insertAutor($showXML ->loadingData());
+
+        
         
         $pageFrases = new FrasesView();
         $pageFrases -> show();

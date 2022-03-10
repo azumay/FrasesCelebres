@@ -1,12 +1,6 @@
 <?php
 
 class AutorModel{
-  
-    private $id;
-    private $nombre;
-    private $descripcion;
-    private $texto;
-    private $tema;
 
     private $fichero;
     private $contenido;
@@ -26,41 +20,40 @@ class AutorModel{
 
 	}
 
-    public function getTexto() {
-        return $this->texto;
-    }
-    public function getTema() {
-        return $this->tema;
-    }
+    public function create(Autor $autorToCreate){
+		
+        $dsn = "mysql:host=localhost;dbname=FrasesAutor";
+        $dbh = new PDO($dsn, "yamuza", "yamuza");
 
-    public function getId() {
-        return $this->id;
+        //select max id BD y le sumo 1 to autor
+        //$idAutor = $dbh->prepare("SELECT MAX(id) FROM Autor");
+        //$idAutor->execute();
+        
+        /*  if( $idAutor->fetch()[0] == NULL ){
+                $idAutor = 1;
+             }else{
+                $idAutor++;
+             }
+        */
+        $queryAutor = $dbh->prepare ( "insert into Autor (url, nombre, descripcion) values(?,?,?);" );
+             
+        
+       
+        $params = array (
+            utf8_decode ( $autorToCreate->getUrl() ),
+            utf8_decode ( $autorToCreate->getNombre() ),
+            utf8_decode ( $autorToCreate->getDescripcion() ) 
+            );
+
+ 
+        
+        $queryAutor->execute ( $params );
+        	
+        
+
+
+
     }
-    
-    public function getNombre() {
-        return $this->nombre;
-    }
-    
-    public function getDescripcion() {
-        return $this->descripcion;
-    }
-    
-    public function setId($id) {
-        $this->id = $id;
-    }
-    
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-    
-    public function setDescripcion($descripcion) {
-        $this->descripcion = $descripcion;
-    }
-    public function setTexto($texto) {
-        $this->texto = $texto;
-    }
-    public function setTema($tema) {
-        $this->tema = $tema;
-    }
+   
 
 }

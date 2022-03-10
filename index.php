@@ -23,6 +23,7 @@ spl_autoload_register(function ($classe) {
 
 try {
     // Controlador frontal
+    
     $app = new FrontController();
     $app->dispatch();
 } catch (Exception $e) {

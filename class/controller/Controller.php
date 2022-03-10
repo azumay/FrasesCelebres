@@ -5,8 +5,6 @@ class Controller {
     }
 
 
-   
-
     function sanitize ($stringANetejar, $convertirAlowercase=0){
         if (empty($stringANetejar)) {
             $stringANetejar = "";
