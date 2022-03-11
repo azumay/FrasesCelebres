@@ -20,6 +20,20 @@ class AutorModel{
 
 	}
 
+    public function mostrar() {
+        $dsn = "mysql:host=localhost;dbname=FrasesAutor";
+        $dbh = new PDO($dsn, "yamuza", "yamuza");
+        
+        $selectAutores = $dbh ->prepare('SELECT * FROM Autor');
+
+        $autoresShow = $selectAutores -> execute();
+
+        return $autoresShow;
+        
+    }
+
+
+
     public function create(Autor $autorToCreate){
 		
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
@@ -35,10 +49,9 @@ class AutorModel{
                 $idAutor++;
              }
         */
-        $queryAutor = $dbh->prepare ( "insert into Autor (url, nombre, descripcion) values(?,?,?);" );
+        $queryAutor = $dbh->prepare ("insert into Autor (url, nombre, descripcion) values(?,?,?);" );
              
         
-       
         $params = array (
             utf8_decode ( $autorToCreate->getUrl() ),
             utf8_decode ( $autorToCreate->getNombre() ),
@@ -46,11 +59,10 @@ class AutorModel{
             );
 
  
-        
         $queryAutor->execute ( $params );
         	
         
-
+        return $dbh->lastInsertId();
 
 
     }
