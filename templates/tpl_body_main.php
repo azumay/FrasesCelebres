@@ -1,6 +1,26 @@
 
 <section class="infos">
 	<div class="content">
+		<h1 class="titulo-reset">Base de Datos "FrasesAutor" acaba de ser reseteada ✅</h1>
+		<h3 class="atencion">⚠️Para que funcione la web correctamente ejecuta los siguientes comandos:⚠️</h3>
+		<div class="comandos-sql">
+
+			<pre>
+				<code>CREATE USER 'yamuza'@'localhost' IDENTIFIED BY 'yamuza';</code>
+			</pre>
+		</div>
+		<div class="comandos-sql">
+			<pre>
+				<code>GRANT ALL PRIVILEGES ON FrasesAutor.* TO 'yamuza'@'localhost';</code>
+			</pre>
+		</div>
+		<div class="comandos-sql">	
+			<pre>
+				<code>FLUSH PRIVILEGES;</code>
+			</pre>
+		</div>
+		
+
 		<div class="grid allcenter">
 
 			<div class="float-md-50 wimg">

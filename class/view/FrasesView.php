@@ -24,6 +24,7 @@ class FrasesView extends View
         include "templates/tpl_head.php";
         include "templates/tpl_header.php";
         include "templates/tpl_header_menu.php";
+        echo "<form action='' method='GET'>";
         echo "<table style='margin:50px auto; width: 80%'>";
         echo " <caption><h1 class='titulo-tabla'>Frases</h1></caption>";
         echo " <thead>
@@ -38,14 +39,14 @@ class FrasesView extends View
               </thead>";
 
         foreach ($frasesShow as $row) {
-
+            $idToDelete= $row->getId();
             echo "<tr>";
             echo "<th><div style='margin:auto;width:100px;'>" . ($row->getId()) . "</div></th>";
             echo "<th><div style='text-align:left;width:800px; padding: 15px;'>" . ($row->getTexto()) . "</div></th>";
             echo "<th><div >" . ($row->getAutor()) . "</div></th>";
             echo "<th><div>" . ($row->getTema()) . "</div></th>";
             echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' type='submit'  " . $row->getId() . "'>Editar</button></th></div>";
-            echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' class='btn-borrar' type='submit' " . $row->getId() . "' >Borrar</button></th></div>";
+            echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' class='btn-borrar' type='submit' name='url' value='FraseController/eliminar/". $idToDelete . "' >Borrar</button></th></div>";
             echo "</tr>";
         }
         echo "</table>";

@@ -25,7 +25,14 @@ class TemaModel{
         return $getTemas;
         
     }
+    public function eliminar($id) {
 
+        $dsn = "mysql:host=localhost;dbname=FrasesAutor";
+        $dbh = new PDO($dsn, "yamuza", "yamuza");
+       
+        $eliminar = $dbh->query("DELETE FROM Tema WHERE id = $id");
+       
+    }
 
     public function create(Tema $temaToCreate){
 		

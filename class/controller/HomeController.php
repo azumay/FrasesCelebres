@@ -12,6 +12,16 @@ class HomeController extends Controller {
         include "templates/tpl_head.php";
         include "templates/tpl_header.php";
         include "templates/tpl_header_menu.php";
+
+
+    /*Resetear Base de Datos con valores*/
+
+        $showXML = new AutorModel();
+      
+        $frases = new BaseDatos();
+        $frases ->createDB(); 
+        $frases ->insertAutor($showXML ->loadingData());
+
         
         $resultat = $this->generarCodiAleatori();
         include "templates/tpl_body_main.php";

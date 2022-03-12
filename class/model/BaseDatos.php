@@ -97,7 +97,7 @@ class BaseDatos
         $temas = array ();
 
     foreach ($datos->autor as $autor) {
-        //var_dump(($autor->descripcion->__toString()));
+     
 	//Autor:	
        $objAutor = new Autor ();
 
@@ -116,7 +116,6 @@ if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
 	//Temas:
         $objTema = new Tema ();
         
-            //$tema = $objTema ->setNombre($frase->children()[0]->children()[1]->__toString());
             $tema= $frase->children()[0]->children()[1]->__toString();
             $exists = false;
             for($i = 0; $i < count ( $temas ); $i ++) {
@@ -126,7 +125,6 @@ if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
                 }
             }
             if (!$exists) {
-                var_dump($tema);
                 $idTema = count ( $temas ) + 1;
                 $temas [] = $tema;
                 $objTema ->setId( $idTema);

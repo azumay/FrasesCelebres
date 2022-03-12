@@ -5,6 +5,18 @@ class TemaController extends Controller {
         parent::__construct();
     }
     
+    public function eliminar($id) {
+        header("Location: {$_SERVER["HTTP_REFERER"]}");
+        $resetId= implode($id);
+
+    
+        $borrar = new TemaModel ();
+
+        $borrar ->eliminar($resetId);
+        
+        
+    }
+    
     public function show() {
       
         

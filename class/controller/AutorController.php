@@ -4,22 +4,19 @@ class AutorController extends Controller {
     public function __construct(){
         parent::__construct();
     }
+
+    public function eliminar($id) {
+        header("Location: {$_SERVER["HTTP_REFERER"]}");
+        $resetId= implode($id);
+
+        $borrar = new AutorModel ();
+
+        $borrar ->eliminar($resetId);
+    }    
+        
     
     public function show() {
-       
-        //include_once "php/functions.php";
-        //include_once "config.php";
-
-        $showXML = new AutorModel();
-        
-      
-        $frases = new BaseDatos();
-        $frases ->createDB(); 
-        $frases ->insertAutor($showXML ->loadingData());
-      
-    
-        
-        
+   
         $pageFrases = new AutorView();
         $pageFrases -> show();
 

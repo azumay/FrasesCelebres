@@ -26,6 +26,15 @@ class FraseModel{
         
     }
 
+    public function eliminar($id) {
+
+        $dsn = "mysql:host=localhost;dbname=FrasesAutor";
+        $dbh = new PDO($dsn, "yamuza", "yamuza");
+       
+        $eliminar = $dbh->query("DELETE FROM Frase WHERE id = $id");
+       
+    }
+
     public function create(Frase $fraseToCreate){
 		
       

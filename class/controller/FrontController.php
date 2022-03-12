@@ -33,7 +33,7 @@ class FrontController extends Controller{
                     }
                 }
             } else {
-                $controller_name = "FrasesController";
+                $controller_name = "HomeController";
                 $action = "show";            
             }
 //        } 
