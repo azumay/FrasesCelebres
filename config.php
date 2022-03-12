@@ -10,4 +10,4 @@ $password='yamuza';
 $dbBaseDeDades = "FrasesAutor";
 $dbtype = 'mysql';
 
-     
+$registresPexPagina = 15; 

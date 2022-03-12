@@ -58,7 +58,7 @@ class BaseDatos
 
         //Zona de Sentencias SQL
         $conn->exec("drop database if exists FrasesAutor;");
-        $conn->exec("create database FrasesAutor DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;");
+        $conn->exec("create database FrasesAutor CHARSET utf8;");
 
         $conn->exec("use FrasesAutor;");
 
@@ -73,8 +73,7 @@ class BaseDatos
 			 	id			int  	 primary key AUTO_INCREMENT,
 				url			varchar(150)	null,
 			 	nombre		varchar(75)  not null,
-			 	descripcion varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL)
-                 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+			 	descripcion varchar(150) NOT NULL);"
         );
 
         $conn->exec(
@@ -98,13 +97,13 @@ class BaseDatos
         $mTema = new TemaModel();
 
     foreach ($datos->autor as $autor) {
-        //var_dump((utf8_encode($autor->descripcion->__toString())));
+        //var_dump(($autor->descripcion->__toString()));
 	//Autor:	
        $objAutor = new Autor ();
 
-			$objAutor->setUrl(utf8_decode($autor->attributes()["url"]->__toString()));
-			$objAutor->setNombre(utf8_decode($autor->nombre->__toString()));
-			$objAutor->setDescripcion(utf8_decode($autor->descripcion->__toString()));
+			$objAutor->setUrl($autor->attributes()["url"]->__toString());
+			$objAutor->setNombre($autor->nombre->__toString());
+			$objAutor->setDescripcion($autor->descripcion->__toString());
 
             $autor_id = $mAutor->create($objAutor);
             $objAutor->setId($autor_id); //Guardo el ID en el obj Autor
@@ -114,26 +113,29 @@ if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
 	
     foreach ($autor->frases as $frase) {
 
-	//Frases:			
-		$objFrase = new Frase ();
-        
-            $objFrase ->setAutor(intval($autor_id));
-		    $objFrase ->setTexto(utf8_decode($frase->children()[0]->children()[0]->__toString()));
-            
-            $mFrase->create($objFrase);
-			
-    //Temas:
+	//Temas:
         $objTema = new Tema ();
 
-            $objTema ->setNombre(utf8_decode($frase->children()[0]->children()[1]->__toString()));
+            $objTema ->setNombre($frase->children()[0]->children()[1]->__toString());
             
-            $mTema->create($objTema);
+            $tema_id = $mTema->create($objTema);
 
             //var_dump($frase->children()[0]->children()[1]->__toString());
             
             //$frase->children()[0]->children()[1]->__toString())
-		
+
             //var_dump($objFrase->getAutor());
+    
+    
+    //Frases:			
+		$objFrase = new Frase ();
+            $objFrase ->setId(intval($tema_id));
+            $objFrase ->setAutor(intval($autor_id));
+		    $objFrase ->setTexto($frase->children()[0]->children()[0]->__toString());
+            
+            $mFrase->create($objFrase);
+			
+    
 
 			
 

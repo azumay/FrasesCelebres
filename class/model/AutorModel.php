@@ -29,9 +29,9 @@ class AutorModel{
        foreach ($selectAutores->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
             $getAutor = new Autor();
                 $getAutor->setId($resultado["id"]);
-                $getAutor ->setUrl($resultado["url"]);
-                $getAutor ->setNombre($resultado["nombre"]);
-                $getAutor ->setDescripcion($resultado["descripcion"]);
+                $getAutor ->setUrl(utf8_decode($resultado["url"]));
+                $getAutor ->setNombre(utf8_decode($resultado["nombre"]));
+                $getAutor ->setDescripcion(utf8_decode($resultado["descripcion"]));
             $getAutores[] = $getAutor;
         }
 
@@ -51,9 +51,9 @@ class AutorModel{
              
         
         $params = array (
-            utf8_decode ( $autorToCreate->getUrl() ),
-            utf8_decode ( $autorToCreate->getNombre() ),
-            utf8_decode ( $autorToCreate->getDescripcion() ) 
+              $autorToCreate->getUrl() ,
+              $autorToCreate->getNombre() ,
+              $autorToCreate->getDescripcion()  
             );
 
  

@@ -16,9 +16,9 @@ class TemaModel{
         $selectTemas = $dbh ->query("select * from Tema LIMIT 15 OFFSET " . $limiteXPagina);
 
        foreach ($selectTemas->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
-            $getTema = new Autor();
-                //$getTema->setId($resultado["id"]);
-                $getTema ->setNombre($resultado["nombre"]);
+            $getTema = new Tema();
+                $getTema->setId($resultado["id"]);
+                $getTema ->setNombre(utf8_decode($resultado["nombre"]));
             $getTemas[] = $getTema;
         }
 
@@ -38,8 +38,7 @@ class TemaModel{
              
         
         $params = array (
-            //utf8_decode ( $temaToCreate->getUrl() ),
-            utf8_decode ( $temaToCreate->getNombre() ),
+             $temaToCreate->getNombre() ,
             );
 
  

@@ -9,7 +9,7 @@ class FraseModel{
 	
     public function mostrar($limiteXPagina) {
         $getFrases=[];
-        $dsn = "mysql:host=localhost;charset=UTF8;dbname=FrasesAutor";
+        $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
         $selectFrases = $dbh ->query("select * from Frase LIMIT 15 OFFSET " . $limiteXPagina);
 
@@ -32,13 +32,13 @@ class FraseModel{
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
 
-        $queryFrase = $dbh->prepare ( "insert into Frase (texto, autor_id) values(?, ?);" );
+        $queryFrase = $dbh->prepare ( "insert into Frase (texto, autor_id, tema_id) values(?, ?, ?);" );
              
         
         $params = array (
-            utf8_decode ( $fraseToCreate->getTexto() ),
-            utf8_decode ( $fraseToCreate->getAutor() ),
-            //utf8_decode ( $fraseToCreate->getId() ) 
+              $fraseToCreate->getTexto() ,
+              $fraseToCreate->getAutor() ,
+              $fraseToCreate->getId()    ,
             );
 
  

@@ -218,15 +218,22 @@ section.footer {
   background-color: #6d6d6d;
   color: white;
 }
-
+caption{
+  background-color: gray;
+  border-radius: 10px 10px 0 0;
+}
+.titulo-tabla{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  color: white;
+}
 .content {
   max-width: 1024px;
   position: relative;
   margin: 0px auto;
 }
 .btn-borrar {
-  float: right;
-  width: 100px;
   background: #9a2b25;
   color: white;
 }

@@ -11,7 +11,7 @@ class Configuracio {
     private $_dbUsernamePerAccions;
     private $_dbPassword;
     private $_dbBaseDeDades;
-    
+    private $_registroPerPagina;
     private static $_instance;
     
     
@@ -27,6 +27,7 @@ class Configuracio {
         $this->_dbPassword = $dbPassword;
         $this->_dbBaseDeDades = $dbBaseDeDades;      
         $this->_dbSQBD=$dbSGBD;
+        $this->_registroPerPagina= $registresPexPagina;
     }
     
     public static function getInstance() {
@@ -44,6 +45,11 @@ class Configuracio {
     public function getDirectoriDePujades()
     {
         return $this->_directoriDePujades;
+    }
+
+    public function getRegistroPerPagina ()
+    {
+        return $this->_registroPerPagina;
     }
 
     /**
