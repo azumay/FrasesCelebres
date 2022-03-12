@@ -15,6 +15,7 @@ class AutorView extends View
 
     public function show()
     {
+        
         //include_once "php/functions.php";
         //include_once "config.php";
 
@@ -49,6 +50,7 @@ class AutorView extends View
         }
         echo "</table>";
         echo "</form>";
+       
         include "templates/tpl_footer.php";
     }
 

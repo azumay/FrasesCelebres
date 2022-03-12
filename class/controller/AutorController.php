@@ -6,10 +6,11 @@ class AutorController extends Controller {
     }
     
     public function show() {
+       
         //include_once "php/functions.php";
         //include_once "config.php";
 
-      $showXML = new AutorModel();
+        $showXML = new AutorModel();
         
       
         $frases = new BaseDatos();

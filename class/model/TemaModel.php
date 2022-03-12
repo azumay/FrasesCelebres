@@ -9,11 +9,11 @@ class TemaModel{
 	}
 	
 
-    public function mostrar($limiteXPagina) {
+    public function mostrar() {
         $getTemas=[];
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
-        $selectTemas = $dbh ->query("select * from Tema LIMIT 15 OFFSET " . $limiteXPagina);
+        $selectTemas = $dbh ->query("select * from Tema;");
 
        foreach ($selectTemas->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
             $getTema = new Tema();
@@ -27,17 +27,17 @@ class TemaModel{
     }
 
 
-
     public function create(Tema $temaToCreate){
 		
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
 
         
-        $queryTema = $dbh->prepare ("insert into Tema (nombre) values(?);" );
+        $queryTema = $dbh->prepare ("insert into Tema (id, nombre) values(?, ?);" );
              
         
         $params = array (
+             $temaToCreate->getId()     ,
              $temaToCreate->getNombre() ,
             );
 

@@ -64,7 +64,7 @@ class BaseDatos
 
         $conn->exec(
             "create table Tema(
-			 	id			int  	primary key AUTO_INCREMENT,
+			 	id			int  	primary key,
  				nombre		varchar(75) not null);"
         );
 
@@ -81,10 +81,8 @@ class BaseDatos
 				id			int  	 primary key AUTO_INCREMENT,
 			 	texto		text 	 not null,
 			 	autor_id	int	     not null,
-                tema_id		int      null,
-                foreign key (tema_id) references Tema(id) on delete cascade,
-                foreign key (autor_id) references Autor(id) on delete cascade 
-                );"
+                tema_id		int      null
+                 );"
         );
 
     }
@@ -95,6 +93,8 @@ class BaseDatos
         $mAutor = new AutorModel();
         $mFrase = new FraseModel();
         $mTema = new TemaModel();
+
+        $temas = array ();
 
     foreach ($datos->autor as $autor) {
         //var_dump(($autor->descripcion->__toString()));
@@ -115,21 +115,28 @@ if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
 
 	//Temas:
         $objTema = new Tema ();
-
-            $objTema ->setNombre($frase->children()[0]->children()[1]->__toString());
-            
-            $tema_id = $mTema->create($objTema);
-
-            //var_dump($frase->children()[0]->children()[1]->__toString());
-            
-            //$frase->children()[0]->children()[1]->__toString())
-
-            //var_dump($objFrase->getAutor());
-    
+        
+            //$tema = $objTema ->setNombre($frase->children()[0]->children()[1]->__toString());
+            $tema= $frase->children()[0]->children()[1]->__toString();
+            $exists = false;
+            for($i = 0; $i < count ( $temas ); $i ++) {
+                if ($temas [$i] == $tema) {
+                    $idTema = $i + 1;
+                    $exists = true;
+                }
+            }
+            if (!$exists) {
+                var_dump($tema);
+                $idTema = count ( $temas ) + 1;
+                $temas [] = $tema;
+                $objTema ->setId( $idTema);
+                $objTema ->setNombre($tema);
+               $tema_id =  $mTema->create($objTema);
+            }
     
     //Frases:			
 		$objFrase = new Frase ();
-            $objFrase ->setId(intval($tema_id));
+            $objFrase ->setId(intval($idTema));
             $objFrase ->setAutor(intval($autor_id));
 		    $objFrase ->setTexto($frase->children()[0]->children()[0]->__toString());
             
@@ -143,14 +150,8 @@ if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
         }
             
     }
-         /*	
-                $oTema = $mTemas->getOneByName($tema);
-                if (!isset($oTema)) {
-                    $oTema = new Tema($tema);
-                    $tema_id = $mTemas->create($oTema);
-                    $oTema->setId($tema_id);
-                    }
-                */
+         
+         
     
     }   
     

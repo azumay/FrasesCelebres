@@ -20,11 +20,11 @@ class AutorModel{
 
 	}
 
-    public function mostrar($limiteXPagina) {
+    public function mostrar() {
         $getAutores=[];
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
-        $selectAutores = $dbh ->query("select * from Autor LIMIT 15 OFFSET " . $limiteXPagina);
+        $selectAutores = $dbh ->query("select * from Autor");
 
        foreach ($selectAutores->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
             $getAutor = new Autor();

@@ -7,11 +7,11 @@ class FraseModel{
      
 	}
 	
-    public function mostrar($limiteXPagina) {
+    public function mostrar() {
         $getFrases=[];
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
-        $selectFrases = $dbh ->query("select * from Frase LIMIT 15 OFFSET " . $limiteXPagina);
+        $selectFrases = $dbh ->query("select * from Frase;");
 
        foreach ($selectFrases->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
             $getFrase = new Frase();
