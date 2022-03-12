@@ -12,9 +12,9 @@ $mainLangFR = "francés";
 $mainLangGE = "alemán";
 $mainMenu1 = "Home";
 $mainMenu2 = "Cotizaciones";
-$mainMenu3 = "Frases célebres";
-$mainMenu4 = "Opción3";
-$mainMenu5 = "Opción4";
+$mainMenu3 = "Autores";
+$mainMenu4 = "Frases";
+$mainMenu5 = "Temas";
 
 $mainInfo1Title = "";
 $mainInfo1Desc ="Código generado aleatoriamente";

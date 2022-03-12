@@ -12,9 +12,9 @@ $mainLangFR = "french";
 $mainLangGE = "german";
 $mainMenu1 = "Home";
 $mainMenu2 = "Quotes";
-$mainMenu3 = "famous phrases";
-$mainMenu4 = "Option3";
-$mainMenu5 = "Option4";
+$mainMenu3 = "Athors";
+$mainMenu4 = "Phrases";
+$mainMenu5 = "Theme";
 
 $mainInfo1Title = "";
 $mainInfo1Desc ="Randomly generated code";

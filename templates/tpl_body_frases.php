@@ -11,6 +11,6 @@
 		</div>
 	</div>
 	<div class="table">
-			<?php echo $taula;?>
+			
 		</div>
 </section>

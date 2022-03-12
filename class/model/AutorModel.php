@@ -20,15 +20,22 @@ class AutorModel{
 
 	}
 
-    public function mostrar() {
+    public function mostrar($limiteXPagina) {
+        $getAutores=[];
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
-        
-        $selectAutores = $dbh ->prepare('SELECT * FROM Autor');
+        $selectAutores = $dbh ->query("select * from Autor LIMIT 15 OFFSET " . $limiteXPagina);
 
-        $autoresShow = $selectAutores -> execute();
+       foreach ($selectAutores->fetchAll(PDO::FETCH_ASSOC) as $resultado) {
+            $getAutor = new Autor();
+                $getAutor->setId($resultado["id"]);
+                $getAutor ->setUrl($resultado["url"]);
+                $getAutor ->setNombre($resultado["nombre"]);
+                $getAutor ->setDescripcion($resultado["descripcion"]);
+            $getAutores[] = $getAutor;
+        }
 
-        return $autoresShow;
+        return $getAutores;
         
     }
 
@@ -39,16 +46,7 @@ class AutorModel{
         $dsn = "mysql:host=localhost;dbname=FrasesAutor";
         $dbh = new PDO($dsn, "yamuza", "yamuza");
 
-        //select max id BD y le sumo 1 to autor
-        //$idAutor = $dbh->prepare("SELECT MAX(id) FROM Autor");
-        //$idAutor->execute();
         
-        /*  if( $idAutor->fetch()[0] == NULL ){
-                $idAutor = 1;
-             }else{
-                $idAutor++;
-             }
-        */
         $queryAutor = $dbh->prepare ("insert into Autor (url, nombre, descripcion) values(?,?,?);" );
              
         

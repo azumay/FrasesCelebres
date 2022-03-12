@@ -8,32 +8,8 @@ class Autor{
     private $nombre;
     private $descripcion;
 
-    /*atributes Frase*/
-    private $texto;
-
-    /*atributes Tema*/
-    private $tema;
     
 
-
-
-    /*to tabla Frase*/
-    public function getTexto(){
-        return $this->texto;
-    }
-    public function setTexto($texto){
-        $this->texto = $texto;
-    }
-   
-    /*to tabla Tema*/
-    public function getTema(){
-        return $this->tema;
-    }
-    public function setTema($tema) {
-        $this->tema = $tema;
-    }
-
-    /*to tabla Autor*/
     public function getUrl(){
         return $this->url;
     }

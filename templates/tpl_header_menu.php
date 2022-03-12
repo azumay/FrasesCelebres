@@ -7,10 +7,12 @@
 		<a href="index.php?url=InversisController/show">
 			<div class="imgMenu"><?php echo $mainMenu2;?></div>
 		</a>
-		<a href="index.php?url=FrasesController/show">
+		<a href="index.php?url=AutorController/show">
 			<div class="imgMenu"><?php echo $mainMenu3;?></div>
 		</a>
-		<div class="imgMenu"><?php echo $mainMenu4;?></div>
+		<a href="index.php?url=FraseController/show">
+			<div class="imgMenu"><?php echo $mainMenu4;?></div>
+		</a>
 		<div class="imgMenu"><?php echo $mainMenu5;?></div>
 	</div>
 </section>

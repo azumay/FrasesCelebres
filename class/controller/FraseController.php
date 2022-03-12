@@ -1,5 +1,5 @@
 <?php
-class FrasesController extends Controller {
+class FraseController extends Controller {
 
     public function __construct(){
         parent::__construct();
@@ -9,12 +9,12 @@ class FrasesController extends Controller {
         //include_once "php/functions.php";
         //include_once "config.php";
 
-        $showXML = new AutorModel();
+        $showXML = new FraseModel();
         
       
-        $frases = new BaseDatos();
-        $frases ->createDB(); 
-        $frases ->insertAutor($showXML ->loadingData());
+        //$frases = new BaseDatos();
+        //$frases ->createDB(); 
+        //$frases ->insertAutor($showXML ->loadingData());
 
         
         

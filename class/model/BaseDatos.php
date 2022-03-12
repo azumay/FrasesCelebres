@@ -53,9 +53,9 @@ class BaseDatos
 
         //Zona de Sentencias SQL
         $conn->exec("drop database if exists FrasesAutor;");
-        $conn->exec("create database FrasesAutor; ");
+        $conn->exec("create database FrasesAutor;");
 
-        $conn->exec("use FrasesAutor; ");
+        $conn->exec("use FrasesAutor;");
 
         $conn->exec(
             "create table Tema(
@@ -87,78 +87,49 @@ class BaseDatos
         $mAutor = new AutorModel();
         $mFrase = new FraseModel();
 
-        /*echo "<pre>";
-        var_dump($datos);
-        echo "</pre>";*/
+    foreach ($datos->autor as $autor) {
 
-
-        foreach ($datos->autor as $autor) {
-        
-
-		/*	echo "<pre>";
-			//var_dump($autor->nombre->__toString(), $autor->descripcion->__toString());
-			echo "</pre>";
-		*/	
-
-		//Autor:	
-			//echo "<pre>";
-            //var_dump($autor->attributes()["url"]->__toString());
-            //var_dump($autor->descripcion->__toString());
-            //echo "</pre>";
-
+	//Autor:	
        $objAutor = new Autor ();
 
 			$objAutor->setUrl(utf8_decode($autor->attributes()["url"]->__toString()));
 			$objAutor->setNombre(utf8_decode($autor->nombre->__toString()));
 			$objAutor->setDescripcion(utf8_decode($autor->descripcion->__toString()));
 
-           
-			//$autor_id[]=$objAutor->getNombre() -> $mAutor->create($objAutor);
-            
             $autor_id = $mAutor->create($objAutor);
-            $objAutor->setId($autor_id);
+            $objAutor->setId($autor_id); //Guardo el ID en el obj Autor
 
-        //var_dump(intval($autor_id));
+    
+if (isset($autor->frases->frase)){ //Si existe frase en ese Autor lo guardamos
+	
+    foreach ($autor->frases as $frase) {
 
-        if (isset($autor->frases->frase)){
-          
-		//Frases:	
-        foreach ($autor->frases as $frase) {
+	//Frases:			
+		$objFrase = new Frase ();
+        
+            $objFrase ->setAutor(intval($autor_id));
+		    $objFrase ->setTexto(utf8_decode($frase->children()[0]->children()[0]->__toString()));
+            
+            $mFrase->create($objFrase);
+			
+            //$frase->children()[0]->children()[1]->__toString())
+		
+            //var_dump($objFrase->getAutor());
 
-           
-				/*
-				echo "<pre>";
-            	var_dump($frase->children()[0]->children()[0]->__toString());
-				var_dump($frase->children()[0]->children()[1]->__toString());
-            	//var_dump($autor->nombre->__toString());
-            	echo "</pre>";
-				
+			
+
+			}
+        }
+            
+    }
+         /*	
                 $oTema = $mTemas->getOneByName($tema);
                 if (!isset($oTema)) {
                     $oTema = new Tema($tema);
                     $tema_id = $mTemas->create($oTema);
                     $oTema->setId($tema_id);
-                }
+                    }
                 */
-		$objFrase = new Frase ();
-        
-        
-		//1r
-            $objFrase ->setAutor(intval($autor_id));
-		    $objFrase ->setTexto(utf8_decode($frase->children()[0]->children()[0]->__toString()));
-            
-			//$objFrase ->setAutor
-			//$frase->children()[0]->children()[1]->__toString())
-		
-            //var_dump($objFrase->getAutor());
-
-			$mFrase->create($objFrase);
-
-			}}
-            
-
-
-        }
     
     }   
     
