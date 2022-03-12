@@ -13,6 +13,8 @@
 		<a href="index.php?url=FraseController/show">
 			<div class="imgMenu"><?php echo $mainMenu4;?></div>
 		</a>
+		<a href="index.php?url=TemaController/show">
 		<div class="imgMenu"><?php echo $mainMenu5;?></div>
+		</a>
 	</div>
 </section>

@@ -371,6 +371,7 @@ td.bgGreen {
 
 tbody tr th {
   padding: 3px;
+  border-right: 1px solid;
 }
 td:nth-child(1) {
   width: 20%;
