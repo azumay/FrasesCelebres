@@ -47,7 +47,7 @@ class AutorView extends View
             echo "<th><div style='text-align:left;width:300px; padding: 15px'>" . utf8_encode($row->getNombre()) . "</div></th>";
             echo "<th><div style='text-align:left; width:500px; padding: 15px'>" . utf8_encode($row->getDescripcion()) . "</div></th>";
             echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' type='submit'  " . $row->getId() . "'>Editar</button></th></div>";
-            echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' class='btn-borrar' type='submit name='url'type='submit' name='url' value='FraseController/eliminar/". $idToDelete . "' >Borrar</button></th></div>";
+            echo "<th><div style='margin: auto; width: 100px;'><button style='width:100px;' class='btn-borrar' type='submit name='url'type='submit' name='url' value='AutorController/eliminar/". $idToDelete . "' >Borrar</button></th></div>";
             echo "</tr>";
         }
         echo "</table>";

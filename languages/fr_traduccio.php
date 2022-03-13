@@ -2,8 +2,8 @@
 // Definició de l'idioma fr-francés
 $mainContacta = "Contacts";
 $mainLog_in = "Connexion";
-$mainTitol = "Langues de l'environnement serveur";
-$mainSubTitol ="Ceci est notre première pratique linguistique";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "catalan";
 $mainLangEU = "basque";
 $mainLangES = "espagnol";

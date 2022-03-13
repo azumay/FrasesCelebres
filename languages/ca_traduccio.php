@@ -2,8 +2,8 @@
 // Definició de l'idioma ca-català
 $mainContacta = "Contacta";
 $mainLog_in = "Log-in";
-$mainTitol = "Llenguatges entorn servidor";
-$mainSubTitol ="Aquesta és la nostra primera pràctica de llenguatge";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "català";
 $mainLangEU = "basc";
 $mainLangES = "castellà";

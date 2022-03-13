@@ -2,8 +2,8 @@
 // Definició de l'idioma ge-alemany
 $mainContacta = "Kontakt";
 $mainLog_in = "Anmelden";
-$mainTitol = "Sprachen um den Server";
-$mainSubTitol ="Dies ist unsere erste Sprachpraxis";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "katalanisch";
 $mainLangEU = "baskisch";
 $mainLangES = "spanisch";

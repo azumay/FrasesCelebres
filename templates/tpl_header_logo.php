@@ -3,7 +3,7 @@
 	<ul>
 		<li class="logo">Thos i Codina</li>
 		<li>M07</li>
-		<li>UF1</li>
+		<li>UF3</li>
 		<li>2021-2022</li>
 	</ul>
 	</logomenu>

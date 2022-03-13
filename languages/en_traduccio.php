@@ -2,8 +2,8 @@
 // Definició de l'idioma en-angles
 $mainContacta = "Contact";
 $mainLog_in = "Log-in";
-$mainTitol = "Server environment languages";
-$mainSubTitol ="It's in our first language practice";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "catalan";
 $mainLangEU = "basque";
 $mainLangES = "spanish";

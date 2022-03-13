@@ -2,8 +2,8 @@
 // Definició de l'idioma eu-euskera
 $mainContacta = "Kontaktua";
 $mainLog_in = "Saioa hasi";
-$mainTitol = "Zerbitzariaren inguruko hizkuntzak";
-$mainSubTitol ="Hau da gure lehen hizkuntza praktika";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "katalana";
 $mainLangEU = "euskara";
 $mainLangES = "gaztelania";

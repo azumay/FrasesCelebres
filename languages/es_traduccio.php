@@ -2,8 +2,8 @@
 // Definició de l'idioma es-catalellà
 $mainContacta = "Contacta";
 $mainLog_in = "Log-in";
-$mainTitol = "Lenguages entorno servidor";
-$mainSubTitol ="Esta es nuestra priemra práctica de lenguatge";
+$mainTitol = "E01 : Frases cèlebres";
+$mainSubTitol ="Xavi Yamuza Mateo";
 $mainLangCA = "catalán";
 $mainLangEU = "vasco";
 $mainLangES = "castellano";
